@@ -1,0 +1,42 @@
+{
+	"name": "formdata-parser",
+	"version": "0.1.0",
+	"description": "Turn FormData into a JSON object, with TypeScript support",
+	"main": "dist/index.js",
+	"types": "dist/index.d.js",
+	"exports": {
+		".": "./dist/index.mjs",
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"dist/**/*"
+	],
+	"scripts": {
+		"build": "tsup",
+		"changeset": "changeset",
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"@changesets/cli": "2.24.4",
+		"changesets": "1.0.2",
+		"prettier": "2.7.1",
+		"tsup": "6.2.3",
+		"typescript": "4.8.2",
+		"vitest": "0.22.1"
+	},
+	"license": "MIT",
+	"keywords": [
+		"formdata",
+		"parser",
+		"typescript",
+		"sveltekit"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/danawoodman/formdata-parser.git"
+	},
+	"bugs": {
+		"url": "https://github.com/danawoodman/formdata-parser/issues"
+	},
+	"homepage": "https://github.com/danawoodman/formdata-parser#readme"
+}
