@@ -14,7 +14,8 @@
 	"scripts": {
 		"build": "tsup",
 		"changeset": "changeset",
-		"test": "vitest"
+		"test": "vitest",
+		"release": "changeset publish"
 	},
 	"devDependencies": {
 		"@changesets/cli": "2.24.4",
