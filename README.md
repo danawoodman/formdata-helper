@@ -28,11 +28,14 @@ issue!
 - Coerces various common value types into an `Object`:
   - `"true"` and `"false"` are coerced to `boolean`s
   - Numbers strings are converted to numbers (e.g. `"1.5"` becomes `1.5`)
+    - Strings with numbers will not (e.g. `"hello1"`, `"1hello"` or `"he11o"`
+      will be `string`s)
   - Grouped fields like multi `<select>`s or `<input type="checkbox">` are
-    turned into `Array`s
+    turned into `Array`s (like `"favorites": [ "TypeScript", "svelte" ]`).
 - Has decent TypeScript support
-  - Can declare a return type which the form `defaults` value is checked
-    against.
+  - Can declare a return type which the form `defaults` value is checked against
+    (see below).
+- No dependencies! ✨
 
 ## Install
 
@@ -73,6 +76,12 @@ const data = parseFormData(formData);
 Passing custom configuration options (all are shown below):
 
 ```ts
+
+const formData = new FormData()
+formData.append("email": "hi@example.com")
+formData.append("likesTypeScript": "yes") // will coerce to `true` with the below `truthy` option.
+// `name` will get automatically set with `defaults` option.
+
 parseFormData(formData, {
 	defaults: { name: "Guest" },
 	falsy: ["false", "f"],
