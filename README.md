@@ -2,6 +2,29 @@
 
 > Parse FormData into a structured JSON object
 
+## Purpose
+
+Sometimes, working with `FormData` can be a pain in the bum, especially when
+working with large forms or when lots of form data needs to be coerced.
+
+This simple tool takes an instance of `FormData` and returns a structured
+JavaScript object with coerced values of primitive types (`boolean`, `number`)
+and creates `Array`s for grouped fields like multi-selects and multiple
+checkboxes.
+
+`FormData` is used in a lot of places where you may need to interact with its
+values:
+
+- `new FormData(document.querySelector("form"))`
+- WebWorker
+- SvelteKit `+server` or `+page.server` responses
+- Etc...
+
+This library _should_ work in all these cases, if it doesn't, please open an
+issue!
+
+## Features
+
 - Coerces various common value types into an `Object`:
   - `"true"` and `"false"` are coerced to `boolean`s
   - Numbers strings are converted to numbers (e.g. `"1.5"` becomes `1.5`)
@@ -42,7 +65,73 @@ const data = parseFormData(formData);
 
 ```js
 {
- 	name: "Jane Doe",
-	favoriteFruits: [ "Banana", "Mango" ],
+  name: "Jane Doe",
+  favoriteFruits: [ "Banana", "Mango" ],
 }
 ```
+
+Passing custom configuration options (all are shown below):
+
+```ts
+parseFormData(formData, {
+	defaults: { name: "Guest" },
+	falsy: ["false", "f"],
+	truthy: ["yes", "y"],
+});
+```
+
+Using with TypeScript:
+
+```ts
+/**
+ * Define a return type for the data.
+ * Note that return value is actually Partial<MyFormData> because
+ * we cannot guarantee the presence of any values in the provided `FormData`
+ * so all return values are possibly `undefined`.
+ */
+interface MyFormData {
+	username: string;
+	age: number;
+	interests: string[];
+	admin: boolean;
+}
+
+// With all options:
+parseFormData<MyFormData>(formData, {
+	defaults: {
+		username: "guest",
+		interests: ["TypeScript"],
+		admin: false,
+	},
+});
+```
+
+## API
+
+Type signatures:
+
+```ts
+type StructuredFormValue =
+	| string
+	| boolean
+	| number
+	| File
+	| StructuredFormValue[];
+
+type StructuredFormData = Record<string, StructuredFormValue>;
+
+interface Configuration<T> {
+	defaults?: Partial<T>;
+	falsy?: string | string[];
+	truthy?: string | string[];
+}
+
+parseFormData<T>(data: FormData, configuration?: Configuration)
+```
+
+## Development
+
+- Tests are run with `npm test` using [Vitest](https://vitest.dev/)
+- Code is written in [TypeScript](https://www.typescriptlang.org/)
+- Build tool is [tsup](https://tsup.egoist.dev) (see `tsup.config.ts`)
+- Releases are done using [changesets](https://github.com/changesets/changesets)
