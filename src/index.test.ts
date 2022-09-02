@@ -1,5 +1,6 @@
-import { Configuration, parseFormData, type StructuredFormData } from "./index";
+import { File } from "node-fetch";
 import { describe, expect, test } from "vitest";
+import { Configuration, parseFormData } from "./index";
 
 function createFormData(data?: {}): FormData {
 	const formData = new FormData();
@@ -9,10 +10,10 @@ function createFormData(data?: {}): FormData {
 	for (const [key, val] of Object.entries(data)) {
 		if (Array.isArray(val)) {
 			for (const v of val) {
-				formData.append(key, String(v));
+				formData.append(key, v instanceof File ? v : String(v));
 			}
 		} else {
-			formData.append(key, String(val));
+			formData.append(key, val instanceof File ? val : String(val));
 		}
 	}
 	return formData;
@@ -91,12 +92,6 @@ describe("parseFormData", () => {
 			},
 			expected: { a: true, b: false, c: true, d: "false" },
 		},
-
-		// File support
-		// formData.append(
-		// 	"resume",
-		// 	new File(["Did lots of stuff"], "resume.txt", { type: "text/plain" })
-		// );
 	];
 
 	for (const t of tests) {
@@ -136,5 +131,15 @@ describe("parseFormData", () => {
 		// 	expect(resp.username).toBeUndefined();
 		// 	expect(resp.admin).toBeUndefined();
 		// });
+	});
+
+	describe("files", () => {
+		test("returns files passed in", async () => {
+			const resume = new File(["Did lots of stuff"], "resume.txt", {
+				type: "text/plain",
+			});
+			const data = f({ resume });
+			expect(parseFormData(data)).toEqual({ resume });
+		});
 	});
 });

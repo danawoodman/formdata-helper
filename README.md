@@ -1,6 +1,39 @@
 # formdata-parser
 
-> Parse FormData into a structured JSON object
+> Parse FormData into a structured JavaScript object with coerced primitive
+> types
+
+```ts
+// Optionally add typing to the response values.
+interface SignUp {
+	email: string;
+	password: string;
+}
+
+// Create some FormData. You likely will just pass form data
+// and not manually create it like this.
+const formData = new FormData();
+formData.append("email", "hi@example.com");
+formData.append("password", "s3kret!");
+formData.append("age", "29");
+formData.append("terms", "true");
+formData.append("favorites", "TypeScript");
+formData.append("favorites", "Svelte");
+formData.append("favorites", "Svelte");
+formData.append(
+	"resume",
+	new File(["Did lots of stuff"], "resume.txt", { type: "text/plain" })
+);
+const data = parseForm<SignUp>(formData);
+
+// Returns the following structured data:
+data.email; // "hi@example.com"
+data.password; // "s3kret!"
+data.age; // 29
+data.terms; // true
+data.favorites; // ["TypeScript", "Svelte"]
+data.resume; // File { name: "resume.txt", type: "text/plain" }
+```
 
 ## Purpose
 
