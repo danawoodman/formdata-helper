@@ -1,5 +1,11 @@
 # formdata-helper
 
+## 0.2.6
+
+### Patch Changes
+
+- 08b6188: Update type in example
+
 ## 0.2.5
 
 ### Patch Changes
