@@ -1,6 +1,6 @@
 {
 	"name": "formdata-helper",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "Turn FormData into a JSON object, with TypeScript support",
 	"main": "dist/index.js",
 	"types": "dist/index.d.js",
