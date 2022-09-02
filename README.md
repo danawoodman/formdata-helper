@@ -1,4 +1,4 @@
-# formdata-parser
+# formdata-helper
 
 > Parse FormData into a structured JavaScript object with coerced primitive
 > types
@@ -73,7 +73,7 @@ issue!
 ## Install
 
 ```shell
-npm i -D formdata-parser
+npm i -D formdata-helper
 ```
 
 ## Usage
@@ -91,7 +91,7 @@ Assuming the following form data:
 `parseFormData` will return a structured JavaScript object:
 
 ```ts
-import { parseFormData } from "formdata-parser";
+import { parseFormData } from "formdata-helper";
 
 const formData = new FormData(document.querySelector("form"));
 const data = parseFormData(formData);

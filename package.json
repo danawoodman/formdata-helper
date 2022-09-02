@@ -1,5 +1,5 @@
 {
-	"name": "formdata-parser",
+	"name": "formdata-helper",
 	"version": "0.2.1",
 	"description": "Turn FormData into a JSON object, with TypeScript support",
 	"main": "dist/index.js",
@@ -35,10 +35,10 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/danawoodman/formdata-parser.git"
+		"url": "git+https://github.com/danawoodman/formdata-helper.git"
 	},
 	"bugs": {
-		"url": "https://github.com/danawoodman/formdata-parser/issues"
+		"url": "https://github.com/danawoodman/formdata-helper/issues"
 	},
-	"homepage": "https://github.com/danawoodman/formdata-parser#readme"
+	"homepage": "https://github.com/danawoodman/formdata-helper#readme"
 }

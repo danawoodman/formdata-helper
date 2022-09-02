@@ -7,7 +7,7 @@ on:
 jobs:
   release:
     # prevents this action from running on forks
-    if: github.repository == 'danawoodman/formdata-parser'
+    if: github.repository == 'danawoodman/formdata-helper'
     name: Release
     timeout-minutes: 15
     runs-on: ubuntu-latest
