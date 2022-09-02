@@ -1,5 +1,11 @@
 # formdata-helper
 
+## 0.2.4
+
+### Patch Changes
+
+- 8eb0ac0: Remove need for needing FormData, update docs
+
 ## 0.2.3
 
 ### Patch Changes
