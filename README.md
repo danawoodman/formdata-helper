@@ -108,6 +108,8 @@ const data = parseFormData(formData);
 }
 ```
 
+### Configuration
+
 Passing custom configuration options (all are shown below):
 
 ```ts
@@ -124,7 +126,7 @@ parseFormData(formData, {
 });
 ```
 
-Using with TypeScript:
+### TypeScript usage
 
 ```ts
 /**
@@ -162,6 +164,33 @@ interface MyFormData extends StructuredFormData {
   interests: string[];
   admin: boolean;
 }
+```
+
+### SvelteKit usage
+
+You can use this helper in your `+server` and `+page.server` files to parse
+incoming form data from form submissions in your Svelte pages.
+
+```ts
+import subscribeUser from "./subscribe-user";
+import { parseFormData } from "formdata-helper";
+import type { RequestHandler } from "./$types";
+
+type RequestData = {
+  email: string;
+  subscribe: boolean;
+};
+
+export const POST: RequestHandler = async ({ request }) => {
+  const formData = await request.formData();
+  const data = parseFormData<RequestData>(formData);
+
+  if (data.subscribe && data.email) {
+    await subscribeUser(data.email);
+  }
+
+  return new Response(JSON.stringify(data));
+};
 ```
 
 ## API
