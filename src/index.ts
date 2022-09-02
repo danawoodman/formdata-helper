@@ -43,7 +43,7 @@ export function parseFormData<T extends StructuredFormData>(
 	configuration?: Configuration<T>
 ): Partial<T> {
 	// TODO: throw or return empty object/undefined/null?
-	if (!data || !(data instanceof FormData)) return {} as T;
+	if (!data || !data?.entries) return {} as T;
 
 	const config = {
 		truthy: "true",

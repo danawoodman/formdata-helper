@@ -1,24 +1,21 @@
 {
 	"name": "formdata-helper",
 	"version": "0.2.3",
-	"description": "Turn FormData into a JSON object, with TypeScript support",
+	"description": "Parse FormData into a structured JavaScript object with coerced primitives including TypeScript support",
+	"types": "dist/index.d.ts",
 	"main": "dist/index.js",
-	"types": "dist/index.d.js",
-	"exports": {
-		".": "./dist/index.mjs",
-		"./package.json": "./package.json"
-	},
-	"files": [
-		"dist/**/*"
-	],
+	"browser": "dist/index.mjs",
+	"module": "dist/index.mjs",
 	"scripts": {
 		"build": "tsup",
+		"dev": "tsup --watch",
 		"changeset": "changeset",
 		"test": "vitest",
 		"release": "changeset publish"
 	},
 	"devDependencies": {
 		"@changesets/cli": "2.24.4",
+		"@types/form-data": "2.5.0",
 		"changesets": "1.0.2",
 		"node-fetch": "3.2.10",
 		"prettier": "2.7.1",

@@ -4,10 +4,10 @@
 
 ```ts
 // Optional: Add TypeScript typing to the response values.
-interface SignUp {
+type SignUp = {
   email: string;
   password: string;
-}
+};
 
 // Create some FormData. You likely will just pass form data
 // and not manually create it like this.
@@ -64,11 +64,13 @@ issue!
       will be `string`s)
   - Grouped fields like multi `<select>`s or `<input type="checkbox">` are
     turned into `Array`s (like `"favorites": [ "TypeScript", "svelte" ]`).
+- Works in the browser, Node or most other environments (exports CommonJS and
+  ESM modules)
 - Has decent TypeScript support
   - Can declare a return type which the form `defaults` value is checked against
     (see below).
 - No dependencies! ✨
-- Tiny: [~617B gzipped](https://bundlephobia.com/package/formdata-helper)
+- Tiny: about [~617B gzipped](https://bundlephobia.com/package/formdata-helper)
 
 ## Install
 
@@ -131,12 +133,12 @@ Using with TypeScript:
  * we cannot guarantee the presence of any values in the provided `FormData`
  * so all return values are possibly `undefined`.
  */
-interface MyFormData {
+type MyFormData = {
   username: string;
   age: number;
   interests: string[];
   admin: boolean;
-}
+};
 
 // With all options:
 parseFormData<MyFormData>(formData, {
@@ -146,6 +148,20 @@ parseFormData<MyFormData>(formData, {
     admin: false,
   },
 });
+```
+
+Please note that if you want to use an `interface` instead of a `type`, you have
+to `extend` from `StructuredFormData` type exported from this package:
+
+```ts
+import { StructuredFormData } from "formdata-helper";
+
+interface MyFormData extends StructuredFormData {
+  username: string;
+  age: number;
+  interests: string[];
+  admin: boolean;
+}
 ```
 
 ## API
