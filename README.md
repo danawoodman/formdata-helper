@@ -4,7 +4,7 @@
 > types
 
 ```ts
-// Optionally add typing to the response values.
+// Optional: Add TypeScript typing to the response values.
 interface SignUp {
 	email: string;
 	password: string;

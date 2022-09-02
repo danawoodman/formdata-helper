@@ -6,9 +6,6 @@ export type StructuredFormValue =
 	| StructuredFormValue[];
 
 export type StructuredFormData = Record<string, StructuredFormValue>;
-// export interface StructuredFormData {
-// 	[k: string]: StructuredFormValue
-// }
 
 export interface Configuration<T> {
 	/**
@@ -44,7 +41,7 @@ export interface Configuration<T> {
 export function parseFormData<T extends StructuredFormData>(
 	data?: FormData,
 	configuration?: Configuration<T>
-): Partial<Record<keyof T, T[keyof T] | T[keyof T][]>> {
+): Partial<T> {
 	// TODO: throw or return empty object/undefined/null?
 	if (!data || !(data instanceof FormData)) return {} as T;
 
@@ -134,7 +131,7 @@ export function parseFormData<T extends StructuredFormData>(
 
 			return data;
 		},
-		{ ...defaults }
+		{ ...defaults } as Partial<T>
 	);
 }
 

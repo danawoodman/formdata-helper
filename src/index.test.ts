@@ -118,16 +118,24 @@ describe("parseFormData", () => {
 
 		// TODO: how to test TS errors?
 		// test("generates TS error with mismatched types", () => {
-		// 	type T = { username: string; age: number };
-		// 	const resp = parseFormData<T>(f({ admin: false}));
+		// 	type Foo = { username: string; age: number };
+		// 	const resp = parseFormData<Foo>(f({ admin: false}));
 		// 	expect(resp.admin).toBeUndefined();
 		// 	expect(resp.username).toBeUndefined();
 		// });
 
 		// test("generates TS error with mismatched types", () => {
 		// 	const defaults = { admin: true };
-		// 	type T = { username: string };
-		// 	const resp = parseFormData<T>(f(), { defaults });
+		// 	type Foo = { username: string };
+		// 	const resp = parseFormData<Foo>(f(), { defaults });
+		// 	expect(resp.username).toBeUndefined();
+		// 	expect(resp.admin).toBeUndefined();
+		// });
+
+		// test("generates TS error with mismatched types", () => {
+		// 	const defaults = { admin: true };
+		// 	type Foo = { username: string, [key: string]: any };
+		// 	const resp = parseFormData<Foo>(f(), { defaults });
 		// 	expect(resp.username).toBeUndefined();
 		// 	expect(resp.admin).toBeUndefined();
 		// });
