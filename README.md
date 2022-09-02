@@ -18,7 +18,6 @@ formData.append("age", "29");
 formData.append("terms", "true");
 formData.append("favorites", "TypeScript");
 formData.append("favorites", "Svelte");
-formData.append("favorites", "Svelte");
 formData.append(
   "resume",
   new File(["Did lots of stuff"], "resume.txt", { type: "text/plain" })
