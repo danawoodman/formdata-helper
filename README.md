@@ -118,9 +118,9 @@ formData.append("likesTypeScript": "yes") // will coerce to `true` with the belo
 // `name` will get automatically set with `defaults` option.
 
 parseFormData(formData, {
-	defaults: { name: "Guest" },
-	falsy: ["false", "f"],
-	truthy: ["yes", "y"],
+  defaults: { name: "Guest" },
+  falsy: ["false", "f"],
+  truthy: ["yes", "y"],
 });
 ```
 
@@ -170,18 +170,18 @@ Type signatures:
 
 ```ts
 type StructuredFormValue =
-	| string
-	| boolean
-	| number
-	| File
-	| StructuredFormValue[];
+  | string
+  | boolean
+  | number
+  | File
+  | StructuredFormValue[];
 
 type StructuredFormData = Record<string, StructuredFormValue>;
 
 interface Configuration<T> {
-	defaults?: Partial<T>;
-	falsy?: string | string[];
-	truthy?: string | string[];
+  defaults?: Partial<T>;
+  falsy?: string | string[];
+  truthy?: string | string[];
 }
 
 parseFormData<T>(data: FormData, configuration?: Configuration)
