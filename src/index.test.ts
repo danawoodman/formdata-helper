@@ -69,10 +69,16 @@ describe("parseFormData", () => {
 			expected: { a: true },
 		},
 		{
-			name: "form overrides defaults",
+			name: "form defaults",
 			formdata: f({ a: false }),
 			config: { defaults: { a: true, b: 12 } },
 			expected: { a: false, b: 12 },
+		},
+		{
+			name: "array defaults",
+			formdata: f({ a: true, b: [1, 2, 3] }),
+			config: { defaults: { b: [100] } },
+			expected: { a: true, b: [1, 2, 3] },
 		},
 
 		// Custom truthy matchers
@@ -87,6 +93,10 @@ describe("parseFormData", () => {
 		},
 
 		// File support
+		// formData.append(
+		// 	"resume",
+		// 	new File(["Did lots of stuff"], "resume.txt", { type: "text/plain" })
+		// );
 	];
 
 	for (const t of tests) {
