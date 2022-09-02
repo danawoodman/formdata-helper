@@ -1,5 +1,11 @@
 # formdata-helper
 
+## 0.2.5
+
+### Patch Changes
+
+- 2702d34: Update readme
+
 ## 0.2.4
 
 ### Patch Changes
