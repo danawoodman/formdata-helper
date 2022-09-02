@@ -7,6 +7,10 @@
 type SignUp = {
   email: string;
   password: string;
+  age: number;
+  terms: boolean;
+  favorites: string[];
+  resume: File;
 };
 
 // Create some FormData. You likely will just pass form data
