@@ -1,13 +1,12 @@
 # formdata-helper
 
-> Parse FormData into a structured JavaScript object with coerced primitive
-> types
+> Parse FormData into a structured JavaScript object with coerced primitives
 
 ```ts
 // Optional: Add TypeScript typing to the response values.
 interface SignUp {
-	email: string;
-	password: string;
+  email: string;
+  password: string;
 }
 
 // Create some FormData. You likely will just pass form data
@@ -21,8 +20,8 @@ formData.append("favorites", "TypeScript");
 formData.append("favorites", "Svelte");
 formData.append("favorites", "Svelte");
 formData.append(
-	"resume",
-	new File(["Did lots of stuff"], "resume.txt", { type: "text/plain" })
+  "resume",
+  new File(["Did lots of stuff"], "resume.txt", { type: "text/plain" })
 );
 const data = parseForm<SignUp>(formData);
 
@@ -82,9 +81,9 @@ Assuming the following form data:
 
 ```html
 <form>
-	<input type="text" name="name" value="Jane Doe" />
-	<input type="checkbox" name="favoriteFruits" value="Banana" checked />
-	<input type="checkbox" name="favoriteFruits" value="Mango" checked />
+  <input type="text" name="name" value="Jane Doe" />
+  <input type="checkbox" name="favoriteFruits" value="Banana" checked />
+  <input type="checkbox" name="favoriteFruits" value="Mango" checked />
 </form>
 ```
 
@@ -132,19 +131,19 @@ Using with TypeScript:
  * so all return values are possibly `undefined`.
  */
 interface MyFormData {
-	username: string;
-	age: number;
-	interests: string[];
-	admin: boolean;
+  username: string;
+  age: number;
+  interests: string[];
+  admin: boolean;
 }
 
 // With all options:
 parseFormData<MyFormData>(formData, {
-	defaults: {
-		username: "guest",
-		interests: ["TypeScript"],
-		admin: false,
-	},
+  defaults: {
+    username: "guest",
+    interests: ["TypeScript"],
+    admin: false,
+  },
 });
 ```
 
