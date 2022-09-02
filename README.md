@@ -68,6 +68,7 @@ issue!
   - Can declare a return type which the form `defaults` value is checked against
     (see below).
 - No dependencies! ✨
+- Tiny: [~617B gzipped](https://bundlephobia.com/package/formdata-helper)
 
 ## Install
 
