@@ -1,5 +1,11 @@
 # formdata-helper
 
+## 0.2.3
+
+### Patch Changes
+
+- 55c2256: Update package-lock
+
 ## 0.2.1
 
 ### Patch Changes
