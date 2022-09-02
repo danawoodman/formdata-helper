@@ -1,6 +1,6 @@
 {
 	"name": "formdata-helper",
-	"version": "0.2.5",
+	"version": "0.2.6",
 	"description": "Parse FormData into a structured JavaScript object with coerced primitives including TypeScript support",
 	"types": "dist/index.d.ts",
 	"main": "dist/index.js",
