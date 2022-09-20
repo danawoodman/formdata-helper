@@ -6,9 +6,12 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",
-		"test": "turbo run test"
+		"test": "turbo run test",
+		"changeset": "changeset",
+		"release": "changeset publish"
 	},
 	"devDependencies": {
+		"changeset": "0.2.6",
 		"turbo": "1.4.5"
 	}
 }
