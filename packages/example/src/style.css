@@ -1,0 +1,122 @@
+:root {
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	font-weight: 500;
+	color: #646cff;
+	text-decoration: inherit;
+}
+a:hover {
+	color: #535bf2;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: 3.2em;
+	line-height: 1.1;
+}
+
+p {
+	margin: 0.5rem 0;
+	padding: 0;
+}
+
+main {
+	max-width: 60rem;
+	display: flex;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+form {
+	margin-right: 2rem;
+	min-width: 24rem;
+}
+
+fieldset {
+	border: 0;
+	margin: 1.5rem 0;
+	padding: 0;
+}
+
+label {
+	font-weight: bold;
+}
+select,
+input {
+	display: block;
+	font-size: 1rem;
+	width: 100%;
+}
+input {
+	padding: 0.4rem 0.8rem;
+}
+input[type="radio"],
+input[type="checkbox"] {
+	display: inline-block;
+	width: auto;
+	padding: 0;
+}
+
+button {
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	background-color: #1a1a1a;
+	cursor: pointer;
+	transition: border-color 0.25s;
+}
+button:hover {
+	border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+	outline: 4px auto -webkit-focus-ring-color;
+}
+
+pre {
+	background-color: #1a1a1a;
+	padding: 1rem 1.5rem;
+	border-radius: 0.5rem;
+	margin: 3rem 0;
+	width: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+	a:hover {
+		color: #747bff;
+	}
+	button {
+		background-color: #f9f9f9;
+	}
+}

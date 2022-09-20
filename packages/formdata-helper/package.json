@@ -1,0 +1,41 @@
+{
+	"name": "formdata-helper",
+	"version": "0.2.5",
+	"description": "Parse FormData into a structured JavaScript object with coerced primitives including TypeScript support",
+	"types": "dist/index.d.ts",
+	"main": "dist/index.js",
+	"browser": "dist/index.mjs",
+	"module": "dist/index.mjs",
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"changeset": "changeset",
+		"test": "vitest",
+		"release": "changeset publish"
+	},
+	"devDependencies": {
+		"@changesets/cli": "2.24.4",
+		"@types/form-data": "2.5.0",
+		"changesets": "1.0.2",
+		"node-fetch": "3.2.10",
+		"prettier": "2.7.1",
+		"tsup": "6.2.3",
+		"typescript": "4.8.2",
+		"vitest": "0.22.1"
+	},
+	"license": "MIT",
+	"keywords": [
+		"formdata",
+		"parser",
+		"typescript",
+		"sveltekit"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/danawoodman/formdata-helper.git"
+	},
+	"bugs": {
+		"url": "https://github.com/danawoodman/formdata-helper/issues"
+	},
+	"homepage": "https://github.com/danawoodman/formdata-helper#readme"
+}
