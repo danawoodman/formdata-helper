@@ -1,4 +1,4 @@
-# formadata-helper
+# formdata-helper
 
 This it the monorepo for [formdata-parser](/packages/formdata-helper/).
 
