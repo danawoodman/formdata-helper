@@ -22,7 +22,6 @@ jobs:
         with:
           node-version: 17.x
           cache: "npm"
-
       - name: Install dependencies
         run: npm install --frozen-lockfile
       - name: Build
