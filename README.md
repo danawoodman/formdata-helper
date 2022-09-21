@@ -1,6 +1,6 @@
 # formdata-helper
 
-This it the monorepo for [formdata-parser](/packages/formdata-helper/).
+This is the monorepo for [formdata-parser](/packages/formdata-helper/).
 
 ## Packages
 
