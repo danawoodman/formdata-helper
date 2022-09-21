@@ -27,8 +27,6 @@ function handleSubmit(event?: SubmitEvent) {
 	// Parse the FormData object.
 	const data = parseFormData<FormStructure>(formData);
 
-	console.log(data.avatar);
-
 	// Display the parsed data.
 	if (!pre) return;
 	pre.innerHTML = JSON.stringify(data, null, 2);
