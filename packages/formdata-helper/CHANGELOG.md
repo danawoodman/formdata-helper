@@ -1,5 +1,12 @@
 # formdata-helper
 
+## 0.3.0
+
+### Minor Changes
+
+- a10e7a3: Add monorepo support
+- a10e7a3: Monorepo setup
+
 ## 0.2.6
 
 ### Patch Changes
