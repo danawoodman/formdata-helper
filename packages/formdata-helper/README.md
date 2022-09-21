@@ -9,7 +9,8 @@ type SignUp = {
   password: string;
   age: number;
   terms: boolean;
-  favorites: string[];
+  // With multi-select type fields, choosing one item will result in a string value.
+  favorites: string | string[];
   resume: File;
 };
 
@@ -48,7 +49,11 @@ This simple tool takes an instance of `FormData` and returns a structured JavaSc
 - SvelteKit `+server` or `+page.server` responses
 - Etc...
 
-This library _should_ work in all these cases, if it doesn't, please open an issue!
+This library _should_ work in all these cases, if it doesn't, please open an
+issue!
+
+You can use the data parsed by `formdata-helper` to pass to your validation
+logic, say using [Zod](https://github.com/colinhacks/zod).
 
 ## Features
 
@@ -64,17 +69,18 @@ This library _should_ work in all these cases, if it doesn't, please open an iss
 - No dependencies! ✨
 - Tiny: about [~617B gzipped](https://bundlephobia.com/package/formdata-helper)
 
+### Out of scope features
+
 And some things that are beyond the scope of this library:
 
 - Doesn't validate the incoming data. For that, checkout [Zod](https://github.com/colinhacks/zod), [Yup](https://github.com/jquense/yup), [io-ts](https://github.com/gcanti/io-ts), [Runtypes](https://github.com/pelotom/runtypes) or [joi](https://joi.dev/)
-- Doesn't look at what field types you have an intelligently parse them. Since `FormData` doesn't give us this type of information, there is nothing we can know about the data in it, so we just do a naive parsing of the data. If you need something more robust, look elsewhere!
-- Since we don't know the types of the data, if a field is empty, it will always
-  be resolved to an empty string. Keep this in mind when working with the data.
+- Doesn't look at what field types you have and intelligently parse them. Since `FormData` doesn't give us this type of information, there is nothing we can know about the data in it, so we just do a naive parsing of the data. If you need something more robust, look elsewhere!
+- Since we don't know the types of the data, if a field is empty, it will always be resolved to an empty string. Keep this in mind when working with the data.
 
 ## Install
 
 ```shell
-npm i -D formdata-helper
+npm i formdata-helper
 ```
 
 ## Usage
@@ -176,6 +182,7 @@ incoming form data from form submissions in your Svelte pages.
 import subscribeUser from "./subscribe-user";
 import { parseFormData } from "formdata-helper";
 import type { RequestHandler } from "./$types";
+import { json } from "@sveltejs/kit";
 
 type RequestData = {
   email: string;
@@ -190,7 +197,7 @@ export const POST: RequestHandler = async ({ request }) => {
     await subscribeUser(data.email);
   }
 
-  return new Response(JSON.stringify(data));
+  return json(data);
 };
 ```
 
