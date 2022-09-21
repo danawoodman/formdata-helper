@@ -14,7 +14,6 @@ export interface Configuration<T> {
 	 * This is useful if you want to always guarantee that certain fields are
 	 * present in the output.
 	 */
-	// defaults?: T;
 	defaults?: Partial<T>;
 
 	/**
@@ -31,9 +30,9 @@ export interface Configuration<T> {
 	 * What values to use when determining a "truthy" value to coerce to `true`.
 	 *
 	 * Examples:
-	 * - `["true", "yes", "y", "1"]`
+	 * - `["on", "true", "yes", "y", "1"]`
 	 *
-	 * Default is `"true"`
+	 * Default is `["on", "true"]`
 	 */
 	truthy?: string | string[];
 }
@@ -46,7 +45,7 @@ export function parseFormData<T extends StructuredFormData>(
 	if (!data || !data?.entries) return {} as T;
 
 	const config = {
-		truthy: "true",
+		truthy: ["on", "true"],
 		falsy: "false",
 		defaults: {},
 		...configuration,
@@ -66,7 +65,8 @@ export function parseFormData<T extends StructuredFormData>(
 
 			const isString = typeof v === "string";
 
-			if (isString && truthy.includes(v)) value = true;
+			if (v === "") value = v;
+			else if (isString && truthy.includes(v)) value = true;
 			else if (isString && falsy.includes(v)) value = false;
 			else if (!isNaN(Number(v))) value = Number(v);
 

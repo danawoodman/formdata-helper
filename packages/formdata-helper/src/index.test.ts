@@ -37,6 +37,11 @@ describe("parseFormData", () => {
 		// Ensure that we can parse a simple form.
 		{ name: "handles empty form data", formdata: f(), expected: {} },
 		{
+			name: "empty values",
+			formdata: f({ search: "" }),
+			expected: { search: "" },
+		},
+		{
 			name: "simple text only form",
 			formdata: f({ name: "Jane Doe" }),
 			expected: { name: "Jane Doe" },

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>formdata-parser example</title>
+	</head>
+	<body>
+		<main>
+			<form>
+				<fieldset>
+					<label for="text-field">Text</label>
+					<input name="text-field" id="name" type="text" value="Jane Doe" />
+				</fieldset>
+				<fieldset>
+					<label for="number">Number</label>
+					<input name="number" id="number" type="number" value="36" />
+				</fieldset>
+				<fieldset>
+					<p>
+						<label>
+							<input
+								name="checkbox-group"
+								type="checkbox"
+								value="true"
+								checked
+							/>
+							Checkbox A (<code>true</code>)
+						</label>
+					</p>
+					<p>
+						<label>
+							<input name="checkbox-group" type="checkbox" value="something" />
+							Checkbox B (<code>something</code>)
+						</label>
+					</p>
+					<p>
+						<label>
+							<input name="checkbox-group" type="checkbox" value="99" checked />
+							Checkbox C (<code>99</code>)
+						</label>
+					</p>
+				</fieldset>
+				<fieldset>
+					<p>
+						<label for="">Multi-select</label>
+					</p>
+					<p>
+						<select name="multi-select" multiple>
+							<option value="12.5" selected>Option A</option>
+							<option value="true" selected>Option B</option>
+							<option value="option-c" selected>Option C</option>
+						</select>
+					</p>
+				</fieldset>
+				<fieldset>
+					<p>
+						<label>
+							<input name="checkbox" id="checkbox" type="checkbox" checked />
+							Solitary checkbox
+						</label>
+					</p>
+				</fieldset>
+				<fieldset>
+					<p>
+						<strong>Radios</strong>
+					</p>
+					<p>
+						<label>
+							<input name="radios" type="radio" value="radio-1" checked />
+							Radio 1
+						</label>
+					</p>
+					<p>
+						<label>
+							<input name="radios" type="radio" value="false" />
+							Radio 2
+						</label>
+					</p>
+				</fieldset>
+				<fieldset>
+					<label for="avatar">Avatar</label>
+					<input name="avatar" id="avatar" type="file" />
+				</fieldset>
+				<fieldset>
+					<button type="submit">Submit</button>
+				</fieldset>
+			</form>
+			<pre style="display: none"></pre>
+		</main>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>
