@@ -17,13 +17,13 @@ type SignUp = {
 // Create some FormData. You likely will just pass form data
 // and not manually create it like this.
 const formData = new FormData();
-formData.append("email", "hi@example.com");
-formData.append("password", "s3kret!");
-formData.append("age", "29");
-formData.append("terms", "true");
+formData.set("email", "hi@example.com");
+formData.set("password", "s3kret!");
+formData.set("age", "29");
+formData.set("terms", "true");
 formData.append("favorites", "TypeScript");
 formData.append("favorites", "Svelte");
-formData.append(
+formData.set(
   "resume",
   new File(["Did lots of stuff"], "resume.txt", { type: "text/plain" })
 );
